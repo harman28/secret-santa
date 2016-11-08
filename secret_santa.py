@@ -166,7 +166,9 @@ call with the --send argument:
 
         if send:
             server = smtplib.SMTP(config['SMTP_SERVER'], config['SMTP_PORT'])
+            server.ehlo()
             server.starttls()
+            server.ehlo()
             server.login(config['USERNAME'], config['PASSWORD'])
         for pair in pairs:
             zone = pytz.timezone(config['TIMEZONE'])

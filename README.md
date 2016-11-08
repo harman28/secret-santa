@@ -27,42 +27,45 @@ Here is the example configuration unchanged:
     # gmail
     SMTP_SERVER: smtp.gmail.com
     SMTP_PORT: 587
-    USERNAME: you@gmail.com
-    PASSWORD: "you're-password"
-
-    TIMEZONE: 'US/Pacific'
-
+    USERNAME: harman28@gmail.com
+    PASSWORD: "your-password"
+    
+    TIMEZONE: 'Asia/Kolkata'
+    
     PARTICIPANTS:
-      - Chad <chad@somewhere.net>
-      - Jen <jen@gmail.net>
-      - Bill <Bill@somedomain.net>
-      - Sharon <Sharon@hi.org>
-
-    # Warning -- if you mess this up you could get an infinite loop
+      - Amritesh <bits.amritesh@gmail.com>
+      - Anshu <mittalanshuman11@gmail.com>
+      - Apurv <apurv.chaturvedi29@gmail.com>
+      - Dave <ishan310@gmail.com>
+      - Harman <harman28@gmail.com>
+      - Sanjana <sanjana7ramachandran@gmail.com>
+    
     DONT-PAIR:
-      - Chad, Jen    # Chad and Jen are married
-      - Chad, Bill   # Chad and Bill are best friends
-      - Bill, Sharon
-
+      - Apurv, Anshu
+    
+    # Ordered pairs
+    DONT-ASSIGN:
+      - Amritesh -> Harman
+      - Anshu    -> Amritesh
+      - Apurv    -> Sanjana
+      - Harman   -> Anshu
+      - Sanjana  -> Dave
+      - Dave     -> Apurv
+    
     # From address should be the organizer in case participants have any questions
-    FROM: You <you@gmail.net>
-
-    # Both SUBJECT and MESSAGE can include variable substitution for the 
+    FROM: Secret Santa Gaawwddd <raunak.dharani@gmail.com>
+    
+    # Both SUBJECT and MESSAGE can include variable substitution for the
     # "santa" and "santee"
-    SUBJECT: Your secret santa recipient is {santee}
-    MESSAGE: 
-      Dear {santa},
-
-      This year you are {santee}'s Secret Santa!. Ho Ho Ho!
-
-      The maximum spending limit is 50.00
-
-
-      This message was automagically generated from a computer. 
-
-      Nothing could possibly go wrong...
-
-      http://github.com/underbluewaters/secret-santa
+    SUBJECT: "[DRY RUN] Secret Santa 2016"
+    MESSAGE:
+      Hi,
+    
+      If you are {santa}, then this email has reached the right person.
+    
+      This year you are {santee}'s Secret Santa!.
+    
+      Merry Christmas.
 
 Once configured, call secret-santa:
 
@@ -71,17 +74,19 @@ Once configured, call secret-santa:
 Calling secret-santa without arguments will output a test pairing of 
 participants.
 
-        Test pairings:
-
-        Chad ---> Bill
-        Jen ---> Sharon
-        Bill ---> Chad
-        Sharon ---> Jen
-
-        To send out emails with new pairings,
-        call with the --send argument:
-
-            $ python secret_santa.py --send
+    Test pairings:
+    
+    Amritesh ---> Sanjana
+    Anshu ---> Dave
+    Apurv ---> Amritesh
+    Dave ---> Anshu
+    Harman ---> Apurv
+    Sanjana ---> Harman
+    
+    To send out emails with new pairings,
+    call with the --send argument:
+    
+        $ python secret_santa.py --send
 
 To send the emails, call using the `--send` argument
 

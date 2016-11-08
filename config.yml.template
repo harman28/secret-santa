@@ -2,46 +2,42 @@
 # gmail
 SMTP_SERVER: smtp.gmail.com
 SMTP_PORT: 587
-USERNAME: you@gmail.com
+USERNAME: harman28@gmail.com
 PASSWORD: "your-password"
 
-TIMEZONE: 'US/Pacific'
+TIMEZONE: 'Asia/Kolkata'
 
 PARTICIPANTS:
-  - Chad <chad@somewhere.net>
-  - Jen <jen@gmail.net>
-  - Bill <Bill@somedomain.net>
-  - Sharon <Sharon@hi.org>
-  - Rita <rita@yahoo.net>
+  - Amritesh <bits.amritesh@gmail.com>
+  - Anshu <mittalanshuman11@gmail.com>
+  - Apurv <apurv.chaturvedi29@gmail.com>
+  - Dave <ishan310@gmail.com>
+  - Harman <harman28@gmail.com>
+  - Sanjana <sanjana7ramachandran@gmail.com>
 
-
-# Warning -- if you mess this up you could get an infinite loop
 DONT-PAIR:
-  - Chad, Jen    # Chad and Jen are married
-  - Chad, Bill   # Chad and Bill are best friends
-  - Bill, Sharon
+  - Apurv, Anshu
 
 # Ordered pairs
 DONT-ASSIGN:
-  - Chad -> Rita  # Chad was assigned Rita last year
-  - Sharon -> Jen # Sharon hates Jen with a passion, but not vice-versa
+  - Amritesh -> Harman
+  - Anshu    -> Amritesh
+  - Apurv    -> Sanjana
+  - Harman   -> Anshu
+  - Sanjana  -> Dave
+  - Dave     -> Apurv
 
 # From address should be the organizer in case participants have any questions
-FROM: You <you@gmail.net>
+FROM: Secret Santa Gaawwddd <raunak.dharani@gmail.com>
 
 # Both SUBJECT and MESSAGE can include variable substitution for the
 # "santa" and "santee"
-SUBJECT: Your secret santa recipient is {santee}
+SUBJECT: "[DRY RUN] Secret Santa 2016"
 MESSAGE:
-  Dear {santa},
+  Hi,
 
-  This year you are {santee}'s Secret Santa!. Ho Ho Ho!
+  If you are {santa}, then this email has reached the right person.
 
-  The maximum spending limit is 50.00
+  This year you are {santee}'s Secret Santa!.
 
-  This message was automagically generated from a computer.
-
-  Nothing could possibly go wrong...
-
-  http://github.com/underbluewaters/secret-santa
-
+  Merry Christmas.
