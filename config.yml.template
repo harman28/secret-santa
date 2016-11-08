@@ -23,8 +23,8 @@ DONT-PAIR:
 
 # Ordered pairs
 DONT-ASSIGN:
-  - Chad, Rita  # Chad was assigned Rita last year
-  - Sharon, Jen # Sharon hates Jen with a passion, but not vice-versa
+  - Chad -> Rita  # Chad was assigned Rita last year
+  - Sharon -> Jen # Sharon hates Jen with a passion, but not vice-versa
 
 # From address should be the organizer in case participants have any questions
 FROM: You <you@gmail.net>

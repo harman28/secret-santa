@@ -146,7 +146,7 @@ def main(argv=None):
                         if name != member:
                             invalid_matches.append(member)
             for pair in dont_assign:
-                names = [n.strip() for n in pair.split(',')]
+                names = [n.strip() for n in pair.split('->')]
                 if name == names[0]:
                     invalid_matches.append(names[-1])
             person = Person(name, email, invalid_matches)
