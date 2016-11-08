@@ -3,7 +3,7 @@ Intro
 
 **secret-santa** can help you manage a list of secret santa participants by
 randomly assigning pairings and sending emails. It can avoid pairing 
-couples to their significant other, and allows custom email messages to be 
+couples to their significant other or assigning certain receivers to certain gifters, and allows custom email messages to be 
 specified.
 
 Dependencies
