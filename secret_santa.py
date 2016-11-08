@@ -28,7 +28,6 @@ REQRD = (
     'PASSWORD',
     'TIMEZONE',
     'PARTICIPANTS',
-    'DONT-PAIR',
     'FROM',
     'SUBJECT',
     'MESSAGE',
@@ -117,8 +116,6 @@ def main(argv=None):
                     'Required parameter %s not in yaml config file!' % (key,))
 
         participants = config['PARTICIPANTS']
-        dont_pair = config['DONT-PAIR']
-        dont_assign = config['DONT-ASSIGN']
 
         try:
             dont_pair = config['DONT-PAIR']
