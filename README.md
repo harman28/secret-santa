@@ -9,8 +9,7 @@ specified.
 Dependencies
 ------------
 
-pytz
-pyyaml
+`pip install -r requirements.txt`
 
 Usage
 -----
