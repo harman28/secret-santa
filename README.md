@@ -14,58 +14,32 @@ Dependencies
 Usage
 -----
 
-Copy config.yml.template to config.yml and enter in the connection details 
-for your outgoing mail server. Modify the participants and couples lists and 
-the email message if you wish.
+Copy `config.yml.template` to `config.yml` and enter in the connection details for your outgoing mail server. Modify the participants and couples lists and the email message if you wish.
 
+More Detailed Usage Instructions For Noobs
+-----
+```sh
+    git clone https://github.com/harman28/secret-santa.git
     cd secret-santa/
     cp config.yml.template config.yml
+```
 
-Here is the example configuration unchanged:
+Now open up `config.yml`. The initial values there should give you some idea of how the file is used. Make the following changes.
 
-    # Required to connect to your outgoing mail server. Example for using gmail:
-    # gmail
-    SMTP_SERVER: smtp.gmail.com
-    SMTP_PORT: 587
-    USERNAME: harman28@gmail.com
-    PASSWORD: "your-password"
-    
-    TIMEZONE: 'Asia/Kolkata'
-    
-    PARTICIPANTS:
-      - Amritesh <bits.amritesh@gmail.com>
-      - Anshu <mittalanshuman11@gmail.com>
-      - Apurv <apurv.chaturvedi29@gmail.com>
-      - Dave <ishan310@gmail.com>
-      - Harman <harman28@gmail.com>
-      - Sanjana <sanjana7ramachandran@gmail.com>
-    
-    DONT-PAIR:
-      - Apurv, Anshu
-    
-    # Ordered pairs
-    DONT-ASSIGN:
-      - Amritesh -> Harman
-      - Anshu    -> Amritesh
-      - Apurv    -> Sanjana
-      - Harman   -> Anshu
-      - Sanjana  -> Dave
-      - Dave     -> Apurv
-    
-    # From address should be the organizer in case participants have any questions
-    FROM: Secret Santa Gaawwddd <raunak.dharani@gmail.com>
-    
-    # Both SUBJECT and MESSAGE can include variable substitution for the
-    # "santa" and "santee"
-    SUBJECT: "[DRY RUN] Secret Santa 2016"
-    MESSAGE:
-      Hi,
-    
-      If you are {santa}, then this email has reached the right person.
-    
-      This year you are {santee}'s Secret Santa!.
-    
-      Merry Christmas.
+1. List the names and email address in `PARTICIPANTS`.
+2. Use `DONT-PAIR` and `DONT-ASSIGN` to avoid certain assignments. The difference is that `DONT-ASSIGN` is a list of ordered pairs, which means
+   * if you've written "`Amritesh -> Anshu`" under `DONT-ASSIGN`, then Amritesh won't be assigned as Anshu's Santa, but Anshu may still be Amritesh's Santa.
+   * if you've written "`Apurv, Dave`" under `DONT-PAIR`, then neither Apurv nor Dave can be the other's Santa.
+3. The `FROM` field doesn't actually work right now. You can use it to set a name for the sender, but the sender email will still be the one you set in `USERNAME` and not the one you write here. Sorry.
+4. `SUBJECT` currently says 'dry run'. Remove that when you're ready to do your final run.
+5. Modify the `MESSAGE` body the way you want, using the `santa` and `santee` variables to enter names.
+6. Set `USERNAME` to the sender's email address. Probably yours.
+7. Set `PASSWORD` to your password. This is why the config file is gitignored, so don't worry about your password being checked into git.
+   * If you've set up 2-step verification on your google account (good stuff!), you won't be able to access it using just your password. For this, Google lets you identify certain apps with permissions to access Gmail with a single step. Use [this link](https://security.google.com/settings/security/apppasswords) to set up an App, say, "SecretSanta Script on Mac". You'll receive an auto-generated password, which you can use here.
+8. Ignore remaining fields.
+
+Running
+-----
 
 Once configured, call secret-santa:
 
@@ -91,3 +65,5 @@ participants.
 To send the emails, call using the `--send` argument
 
     python secret_santa.py --send
+
+**Fair Warning:** At this point, the sent messages will still show up in your sent messages folder on Gmail. If you're not a disinterested organiser, you should probably go and delete them from there, without checking their contents of course.
