@@ -2,42 +2,40 @@
 # gmail
 SMTP_SERVER: smtp.gmail.com
 SMTP_PORT: 587
-USERNAME: harman28@gmail.com
+USERNAME: email.my@gmail.com
 PASSWORD: "your-password"
 
 TIMEZONE: 'Asia/Kolkata'
 
 PARTICIPANTS:
-  - Amritesh <bits.amritesh@gmail.com>
-  - Anshu <mittalanshuman11@gmail.com>
-  - Apurv <apurv.chaturvedi29@gmail.com>
-  - Dave <ishan310@gmail.com>
-  - Harman <harman28@gmail.com>
-  - Sanjana <sanjana7ramachandran@gmail.com>
+  - Amritesh <email1@email.com>
+  - Anant    <email2@email.com>
+  - Anshu    <email3@email.com>
+  - Apurv    <email4@email.com>
+  - Dave     <email5@email.com>
 
 DONT-PAIR:
-  - Apurv, Anshu
+  - Anshu, Apurv
 
 # Ordered pairs
 DONT-ASSIGN:
-  - Amritesh -> Harman
-  - Anshu    -> Amritesh
-  - Apurv    -> Sanjana
-  - Harman   -> Anshu
-  - Sanjana  -> Dave
-  - Dave     -> Apurv
+  - Amritesh -> Dave
 
 # From address should be the organizer in case participants have any questions
-FROM: Secret Santa Gaawwddd <raunak.dharani@gmail.com>
+FROM: Secret Santa Assignment <emailo@email.com>
 
 # Both SUBJECT and MESSAGE can include variable substitution for the
 # "santa" and "santee"
-SUBJECT: "[DRY RUN] Secret Santa 2016"
+SUBJECT: "[DRY RUN] Secret Santa 2017"
 MESSAGE:
-  Hi,
+  Hello,
 
   If you are {santa}, then this email has reached the right person.
 
-  This year you are {santee}'s Secret Santa!.
+  This year you have been selected to be {santee}'s Secret Santa!
+
+  There's a hard upper limit on expenditure. Do not spend more than 999 rupees 
+  on your gift. Unwrap Day will be in the second half of January. Make sure your 
+  santee gets the gift by then. A list of addresses will be shared soon.
 
   Merry Christmas.
